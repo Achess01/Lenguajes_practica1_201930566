@@ -12,4 +12,5 @@
 Prohibido utilizar:
 - split 
 - Expresiones regulares
+
 Debe recorrer la cadena. Debe permitir ingresar un texto (varías lineas). Un botón para verificar Un apartado donde agregue un listado de las palabras verificadasDebe indicar el tipo de token Debe utilizar enumeraciones.
