@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Analizer {
         private ArrayList<Token> tokens = new ArrayList<>();
         public String analize(String data){
+                data = data.trim();
                 data = data + " ";
                 String text = "";
                 Boolean id = false, number = false, symbol = false, decimal = false;
@@ -92,6 +93,14 @@ public class Analizer {
                                                 id = false;
                                         }
                                 }
+                                else{
+                                        tokens.add(new Token(TokenType.ERROR, text));
+                                        text = "";
+                                        number = false;
+                                        decimal = false;
+                                        symbol = false;
+                                        id = false;
+                                }
                         }
                 }
                 return show();
@@ -104,11 +113,4 @@ public class Analizer {
                 }
                 return textResponse;
         }
-
-        public static void main(String[] args) {
-                Analizer an = new Analizer();
-                String response = an.analize("12.3434 amigos2423 a23f 234.32.1 de23423 YT234234 {} . ;");
-                System.out.println(response);
-        }
-
 }

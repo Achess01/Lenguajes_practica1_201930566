@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
-    private final int WIDTH = 550;
+    private final int WIDTH = 850;
     private final int HEIGHT = 350;
     public MainFrame(){
        initComponents();
@@ -26,6 +26,10 @@ public class MainFrame extends JFrame {
         //TextArea
         JTextArea textSpace = new JTextArea(20, 40);
         JScrollPane scrollPane = new JScrollPane(textSpace);
+        //TextArea response
+        JTextArea responseSpace = new JTextArea(10, 30);
+        responseSpace.setEditable(false);
+        JScrollPane scrollPane1 = new JScrollPane(responseSpace);
         //Button
         JButton button = new JButton("Analizar");
         button.addActionListener(new ActionListener() {
@@ -34,7 +38,7 @@ public class MainFrame extends JFrame {
                 String text = textSpace.getText();
                 Analizer analizer = new Analizer();
                 String response = analizer.analize(text);
-                textSpace.setText(response);
+                responseSpace.setText(response);
                 //Analizar texto
             }
         });
@@ -42,12 +46,9 @@ public class MainFrame extends JFrame {
 
         panel.add(scrollPane);
         panel.add(button);
+        panel.add(scrollPane1);
         setContentPane(panel);
         pack();
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        MainFrame mainF = new MainFrame();
     }
 }
