@@ -1,5 +1,7 @@
 package UI;
 
+import Backend.Analizer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,7 +32,9 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 String text = textSpace.getText();
-                System.out.println(text);
+                Analizer analizer = new Analizer();
+                String response = analizer.analize(text);
+                textSpace.setText(response);
                 //Analizar texto
             }
         });
